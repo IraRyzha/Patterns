@@ -7,8 +7,5 @@
     "dev": "parcel index.html"
   },
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "parcel": "^2.12.0"
-  }
+  "license": "ISC"
 }

@@ -1,5 +1,5 @@
-class Order {
-    constructor() {
+export class Order {
+    constructor() { 
         this.state = new InProcessingState(this);
     }
     setState(state) {
@@ -28,15 +28,15 @@ class State {
     next() {
         console.log('Order is not received!')
     }
+    cancel() {
+        console.log('Order is canceled.')
+        this.order.setState('Canceled!')
+    }
 }
 class InProcessingState extends State {
     next() {
         console.log('Order is processing.')
         this.order.setState(new AwaitingPaymentState(this.order))
-    }
-    cancel() {
-        console.log('Order is canceled.')
-        this.order.setState('Canceled!')
     }
 }
 class AwaitingPaymentState extends State {
@@ -44,19 +44,11 @@ class AwaitingPaymentState extends State {
         console.log('Order is awaiting for payment.')
         this.order.setState(new ShippedState(this.order))
     }
-    cancel() {
-        console.log('Order is canceled.')
-        this.order.setState('Canceled!')
-    }
 }
 class ShippedState extends State {
     next() {
         console.log('Order is shipped.')
         this.order.setState(new DeliveredState(this.order))
-    }
-    cancel() {
-        console.log('Order is canceled.')
-        this.order.setState('Canceled!')
     }
 }
 class DeliveredState extends State {
@@ -69,14 +61,3 @@ class DeliveredState extends State {
 }
 
 
-const newOrder = new Order();
-
-// console.log(newOrder)
-
-// newOrder.cancel()
-newOrder.next()
-newOrder.cancel()
-newOrder.next()
-newOrder.cancel()
-
-// console.log(newOrder)

@@ -1,5 +1,5 @@
 export class Cart {
-    constructor() {
+    constructor() { 
         if (Cart.instance) {
             throw console.error('Cart is singleton!');
         }
@@ -19,9 +19,6 @@ export class Cart {
         this.items = this.items.filter(it => it !== item);
     }
     showAllItems() {
-        // if (!Cart.instance) {
-        //     throw console.error('Cart has not been created!');
-        // }
        console.log(this.items);
     }
 }
