@@ -7,13 +7,7 @@ export class Cart {
         Cart.instance = this;
     }
     addItem(items) {
-        if (Array.isArray(items)) {
-            items.forEach(item => {
-                this.items.push(item);
-            })
-        } else {
-            this.items.push(items);
-        }
+        this.items = Array.isArray(items) ? [...this.items, ...items] : [...this.items, items];
     }
     removeItem(item) {
         this.items = this.items.filter(it => it !== item);

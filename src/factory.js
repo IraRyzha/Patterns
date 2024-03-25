@@ -3,7 +3,7 @@ class Product {
         this.name = name;
         this.price = price;
         this.category = category;
-        this.isOnSale = isOnSale;
+        this.isOnSale = isOnSale; 
     }
 }
 export function createProduct(name, price, category) {
