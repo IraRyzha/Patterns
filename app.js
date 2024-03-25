@@ -21,8 +21,8 @@ cart.showAllItems();
 const newOrder = new Order();
 
 // console.log(newOrder)
-// newOrder.next()
-// newOrder.next()
-// newOrder.next()
-// newOrder.cancel()
+newOrder.next()
+newOrder.next()
+newOrder.next()
+newOrder.cancel()
 // console.log(newOrder)
